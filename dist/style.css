@@ -1,0 +1,37 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+}
+
+.left-content {
+	padding: 0.5em;
+	display: grid;
+	grid-template-rows: 50px 1.5fr 1fr;
+}
+
+.left-content > * {
+	border: 1px solid salmon;
+}
+
+.logo img {
+	max-height: 100%;
+}
+
+.right-content {
+	background-color: aquamarine;
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	height: 100%;
+}
