@@ -63,7 +63,6 @@ main {
 	padding-top: 5rem;
 	font-size: calc(1vw + 1vh + 1vmin);
 	font-family: "Roboto";
-	font-weight: 100;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
