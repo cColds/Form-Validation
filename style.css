@@ -47,7 +47,7 @@ main {
 	max-height: 100%;
 }
 
-.call-to-action {
+.hero-text {
 	padding-top: 5rem;
 	font-size: calc(1vw + 1vh + 1vmin);
 	font-family: "Roboto";
@@ -55,12 +55,11 @@ main {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	gap: 1em;
 	align-items: center;
 	color: #aaa2b8;
 }
 
-.get-started {
+.get-started-cta {
 	padding: 1em;
 	min-width: 150px;
 	border-radius: 5px;
@@ -69,9 +68,10 @@ main {
 	font-weight: bold;
 	font-size: 1rem;
 	transition: 0.3s;
+	margin-top: 1em;
 }
 
-.get-started:hover {
+.get-started-cta:hover {
 	opacity: 0.8;
 }
 
