@@ -33,6 +33,7 @@ main {
 	padding: 0.5em;
 	display: grid;
 	grid-template-rows: 50px 1fr;
+	border-right: 5px solid slategray;
 }
 
 .left-content-main {
@@ -49,13 +50,14 @@ main {
 .call-to-action {
 	padding-top: 5rem;
 	font-size: calc(1vw + 1vh + 1vmin);
-	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-family: "Roboto";
 	font-weight: 100;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 	gap: 1em;
 	align-items: center;
+	color: #aaa2b8;
 }
 
 .get-started {
@@ -80,5 +82,15 @@ main {
 /* RIGHT CONTENT */
 
 .right-content {
-	background-color: aquamarine;
+	display: grid;
+	align-items: center;
+	border: 2px solid;
+}
+
+.sign-up-form {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: #f8faff;
+	padding: 1em;
 }
