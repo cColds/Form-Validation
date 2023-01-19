@@ -1,3 +1,5 @@
+/* GENERAL STYLES */
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -12,26 +14,71 @@ body {
 body {
 }
 
+button {
+	border: 0;
+	cursor: pointer;
+}
+
+/* MAIN */
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+	height: 100%;
+}
+
+/* LEFT CONTENT */
+
 .left-content {
 	padding: 0.5em;
 	display: grid;
-	grid-template-rows: 50px 1.5fr 1fr;
+	grid-template-rows: 50px 1fr;
 }
 
-.left-content > * {
-	border: 1px solid salmon;
+.left-content-main {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 2.5rem;
 }
 
 .logo img {
 	max-height: 100%;
 }
 
-.right-content {
-	background-color: aquamarine;
+.call-to-action {
+	padding-top: 5rem;
+	font-size: calc(1vw + 1vh + 1vmin);
+	font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+	font-weight: 100;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	align-items: center;
 }
 
-main {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-	height: 100%;
+.get-started {
+	padding: 1em;
+	min-width: 150px;
+	border-radius: 5px;
+	background-color: rgb(69, 224, 173);
+	color: white;
+	font-weight: bold;
+	font-size: 1rem;
+	transition: 0.3s;
+}
+
+.get-started:hover {
+	opacity: 0.8;
+}
+
+.characters {
+	width: clamp(100px, 75%, 500px);
+}
+
+/* RIGHT CONTENT */
+
+.right-content {
+	background-color: aquamarine;
 }
