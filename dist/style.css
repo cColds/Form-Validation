@@ -19,6 +19,18 @@ button {
 	cursor: pointer;
 }
 
+input,
+select {
+	border: 0;
+	padding: 1em;
+	width: 200px;
+	border-radius: 5px;
+}
+
+select {
+	background-color: white;
+}
+
 /* MAIN */
 
 main {
@@ -59,11 +71,23 @@ main {
 	color: #aaa2b8;
 }
 
+.hero-ice-cream-text {
+	background: rgb(102, 95, 205);
+	background: linear-gradient(
+		90deg,
+		rgba(102, 95, 205, 1) 0%,
+		rgba(9, 121, 70, 1) 35%,
+		rgba(29, 114, 131, 1) 100%
+	);
+	padding: 0.05em;
+	border-radius: 5px;
+}
+
 .get-started-cta {
 	padding: 1em;
 	min-width: 150px;
 	border-radius: 5px;
-	background-color: rgb(69, 224, 173);
+	background-color: #45e0ad;
 	color: white;
 	font-weight: bold;
 	font-size: 1rem;
@@ -85,12 +109,12 @@ main {
 	display: grid;
 	align-items: center;
 	border: 2px solid;
+	background-color: #f8faff;
 }
 
 .sign-up-form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	background-color: #f8faff;
 	padding: 1em;
 }
