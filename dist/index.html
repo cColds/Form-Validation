@@ -15,7 +15,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-
+        <script src="https://kit.fontawesome.com/326c7ea485.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
@@ -38,6 +38,7 @@
 
 
                     <img class="characters" src="./characters.png" alt="characters">
+
                 </div>
 
             </div>
@@ -49,7 +50,11 @@
                     </div>
 
                     <label for="email">Email</label>
-                    <input type="email" placeholder="Email" id="email">
+                    <div class="email-container">
+                        <input type="email" placeholder="Email" id="email">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <!-- <i class="fa-solid fa-circle-xmark"></i> -->
+                    </div>
 
                     <label for="country">Country</label>
                     <select id="country" name="country" class="form-control">
@@ -309,10 +314,10 @@
                         placeholder="Zipcode">
 
                     <label for="password">Password</label>
-                    <input type="password" id="password">
+                    <input type="password" placeholder="Password" id="password">
 
                     <label for="confirm-password">Confirm Password</label>
-                    <input type="password" id="confirm-password">
+                    <input type="password" placeholder="Confirm Password" id="confirm-password">
 
                     <button class="sign-up-button">Sign up</button>
                 </form>

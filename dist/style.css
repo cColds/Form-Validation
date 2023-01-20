@@ -1,6 +1,8 @@
 /* GENERAL STYLES */
 
-* {
+*,
+*::before,
+* ::after {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -29,7 +31,14 @@ select {
 	padding: 1em;
 	width: 100%;
 	border-radius: 5px;
-	background-color: #cbd5e1;
+	background-color: white;
+	outline: 2px solid #ddd;
+	transition: 0.5s;
+}
+
+input:focus,
+select:focus {
+	outline: 2px solid #467ce2;
 }
 
 h4 {
@@ -37,9 +46,16 @@ h4 {
 }
 
 label {
-	text-transform: uppercase;
-	color: #aaa2b8;
 	font-weight: bold;
+}
+
+i {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	padding-right: 0.5em;
+	font-size: 1.25rem;
 }
 
 /* MAIN */
@@ -120,7 +136,13 @@ main {
 	display: grid;
 	align-items: center;
 	border: 2px solid;
-	background-color: #f8faff;
+}
+
+.sign-up-form {
+	display: grid;
+	padding: 1em;
+	gap: 1em;
+	justify-content: center;
 }
 
 .sign-up-form-text {
@@ -130,11 +152,8 @@ main {
 	margin-bottom: 1em;
 }
 
-.sign-up-form {
-	display: grid;
-	padding: 1em;
-	gap: 1em;
-	justify-content: center;
+.email-container {
+	position: relative;
 }
 
 .sign-up-button {
