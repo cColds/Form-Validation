@@ -51,13 +51,18 @@
 
                     <label for="email">Email</label>
                     <div class="input-container">
-                        <input type="email" placeholder="Email" id="email">
+                        <input type="email" placeholder="Email" id="email" required>
+                        <div class="error-message">
+                            Email is invalid.
+                        </div>
                         <i class="fa-solid fa-circle-check"></i>
                         <i class="fa-solid fa-circle-xmark"></i>
+
                     </div>
 
                     <label for="country">Country</label>
-                    <select id="country" name="country" class="form-control">
+                    <select id="country" required>
+                        <option selected="selected" disabled="disabled" value="">Country</option>
                         <option value="Afghanistan">Afghanistan</option>
                         <option value="Åland Islands">Åland Islands</option>
                         <option value="Albania">Albania</option>
@@ -312,21 +317,30 @@
                     <label for="zipcode">Zipcode</label>
                     <div class="input-container">
                         <input type="number" id="zipcode" name="zip" pattern="[0-9]{5}" min="00000" max="99999"
-                            placeholder="Zipcode">
+                            placeholder="Zipcode" required>
+                        <div class="error-message">
+                            Please enter a five-digit number
+                        </div>
                         <i class="fa-solid fa-circle-check"></i>
                         <i class="fa-solid fa-circle-xmark"></i>
                     </div>
 
                     <label for="password">Password</label>
                     <div class="input-container">
-                        <input type="password" placeholder="Password" id="password">
+                        <input type="password" placeholder="Password" id="password" required>
+                        <div class="error-message">
+                            Password is invalid.
+                        </div>
                         <i class="fa-solid fa-circle-check"></i>
                         <i class="fa-solid fa-circle-xmark"></i>
                     </div>
-                    <label for="confirm-password">Confirm Password</label>
 
+                    <label for="confirm-password">Confirm Password</label>
                     <div class="input-container">
-                        <input type="password" placeholder="Confirm Password" id="confirm-password">
+                        <input type="password" placeholder="Confirm Password" id="confirm-password" required>
+                        <div class="error-message">
+                            Password does not match.
+                        </div>
                         <i class="fa-solid fa-circle-check"></i>
                         <i class="fa-solid fa-circle-xmark"></i>
                     </div>
