@@ -34,7 +34,7 @@ select {
 	background-color: white;
 	outline: 2px solid #ddd;
 	transition: 0.5s;
-	height: 40px;
+	height: 45px;
 }
 
 input:focus,
@@ -154,7 +154,7 @@ main {
 	opacity: 0;
 	color: green;
 	transform: translate(-50%, -50%);
-	top: 20px;
+	top: 22.5px;
 	transition: 0.5s;
 	display: none;
 	opacity: 0;
@@ -164,7 +164,7 @@ main {
 .fa-circle-xmark {
 	position: absolute;
 	transform: translate(-50%, -50%);
-	top: 20px;
+	top: 22.5px;
 	right: 0;
 	transition: 0.5s;
 
