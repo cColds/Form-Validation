@@ -34,6 +34,7 @@ select {
 	background-color: white;
 	outline: 2px solid #ddd;
 	transition: 0.5s;
+	height: 40px;
 }
 
 input:focus,
@@ -47,20 +48,6 @@ h4 {
 
 label {
 	font-weight: bold;
-}
-
-i {
-	position: absolute;
-	right: 0;
-	top: 50%;
-	transform: translateY(-50%);
-	padding-right: 0.5em;
-	font-size: 1.25rem;
-}
-
-.fa-solid {
-	display: none;
-	opacity: 0;
 }
 
 /* MAIN */
@@ -162,25 +149,56 @@ main {
 }
 
 .fa-circle-check {
-	color: transparent;
+	position: absolute;
+	display: none;
+	opacity: 0;
+	color: green;
+	transform: translate(-50%, -50%);
+	top: 20px;
 	transition: 0.5s;
+	display: none;
+	opacity: 0;
+	font-size: 1.2rem;
 }
 
 .fa-circle-xmark {
-	color: transparent;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	top: 20px;
+	right: 0;
 	transition: 0.5s;
-}
 
-.fa-circle-check.correct {
-	display: block;
-	opacity: 1;
-	color: green;
-}
-
-.fa-circle-xmark.incorrect {
-	display: block;
-	opacity: 1;
+	display: none;
+	opacity: 0;
 	color: red;
+	font-size: 1.2rem;
+}
+
+.error-message {
+	color: red;
+	font-size: 0.85rem;
+	padding-top: 0.5em;
+	display: none;
+}
+
+/* VALIDATION PSEUDO CLASSES */
+
+input:invalid,
+select:invalid {
+	outline: 2px solid #f87171;
+}
+
+input:invalid + .error-message {
+	display: block;
+}
+
+input:invalid ~ .fa-circle-xmark {
+	display: block;
+	opacity: 1;
+}
+
+input:valid ~ .fa-circle-check {
+	display: block;
 }
 
 .sign-up-button {
