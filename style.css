@@ -58,6 +58,11 @@ i {
 	font-size: 1.25rem;
 }
 
+.fa-solid {
+	display: none;
+	opacity: 0;
+}
+
 /* MAIN */
 
 main {
@@ -152,8 +157,30 @@ main {
 	margin-bottom: 1em;
 }
 
-.email-container {
+.input-container {
 	position: relative;
+}
+
+.fa-circle-check {
+	color: transparent;
+	transition: 0.5s;
+}
+
+.fa-circle-xmark {
+	color: transparent;
+	transition: 0.5s;
+}
+
+.fa-circle-check.correct {
+	display: block;
+	opacity: 1;
+	color: green;
+}
+
+.fa-circle-xmark.incorrect {
+	display: block;
+	opacity: 1;
+	color: red;
 }
 
 .sign-up-button {
