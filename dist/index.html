@@ -50,10 +50,10 @@
                     </div>
 
                     <label for="email">Email</label>
-                    <div class="email-container">
+                    <div class="input-container">
                         <input type="email" placeholder="Email" id="email">
                         <i class="fa-solid fa-circle-check"></i>
-                        <!-- <i class="fa-solid fa-circle-xmark"></i> -->
+                        <i class="fa-solid fa-circle-xmark"></i>
                     </div>
 
                     <label for="country">Country</label>
@@ -310,14 +310,26 @@
                     </select>
 
                     <label for="zipcode">Zipcode</label>
-                    <input type="number" id="zipcode" name="zip" pattern="[0-9]{5}" min="00000" max="99999"
-                        placeholder="Zipcode">
+                    <div class="input-container">
+                        <input type="number" id="zipcode" name="zip" pattern="[0-9]{5}" min="00000" max="99999"
+                            placeholder="Zipcode">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </div>
 
                     <label for="password">Password</label>
-                    <input type="password" placeholder="Password" id="password">
-
+                    <div class="input-container">
+                        <input type="password" placeholder="Password" id="password">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </div>
                     <label for="confirm-password">Confirm Password</label>
-                    <input type="password" placeholder="Confirm Password" id="confirm-password">
+
+                    <div class="input-container">
+                        <input type="password" placeholder="Confirm Password" id="confirm-password">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </div>
 
                     <button class="sign-up-button">Sign up</button>
                 </form>
