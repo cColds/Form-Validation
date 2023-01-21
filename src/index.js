@@ -5,7 +5,7 @@ const password = document.querySelector("#password");
 const confirmPassword = document.querySelector("#confirm-password");
 const signUpButton = document.querySelector(".sign-up-button");
 
-function checkInputValidityToStyle(input) {
+function styleInputValidity(input) {
 	if (input.validity.valid) {
 		input.className = "valid";
 	} else {
@@ -13,30 +13,30 @@ function checkInputValidityToStyle(input) {
 	}
 }
 
-email.addEventListener("keyup", () => checkInputValidityToStyle(email));
-email.addEventListener("focusout", () => checkInputValidityToStyle(email));
+function styleConfirmPasswordValidity() {
+	if (password.value === confirmPassword.value) {
+		confirmPassword.className = "valid";
+	} else {
+		confirmPassword.className = "invalid";
+	}
+}
 
-country.addEventListener("keyup", () => checkInputValidityToStyle(country));
-country.addEventListener("focusout", () => checkInputValidityToStyle(country));
+email.addEventListener("keyup", () => styleInputValidity(email));
+email.addEventListener("focusout", () => styleInputValidity(email));
 
-zipcode.addEventListener("keyup", () => checkInputValidityToStyle(zipcode));
-zipcode.addEventListener("focusout", () => checkInputValidityToStyle(zipcode));
+country.addEventListener("keyup", () => styleInputValidity(country));
+country.addEventListener("focusout", () => styleInputValidity(country));
 
-password.addEventListener("keyup", () => checkInputValidityToStyle(password));
-password.addEventListener("focusout", () =>
-	checkInputValidityToStyle(password)
-);
+zipcode.addEventListener("keyup", () => styleInputValidity(zipcode));
+zipcode.addEventListener("focusout", () => styleInputValidity(zipcode));
 
-confirmPassword.addEventListener("keyup", () =>
-	checkInputValidityToStyle(confirmPassword)
-);
-confirmPassword.addEventListener("focusout", () =>
-	checkInputValidityToStyle(confirmPassword)
-);
+password.addEventListener("keyup", () => styleInputValidity(password));
+password.addEventListener("focusout", () => styleInputValidity(password));
 
-signUpButton.addEventListener("click", () =>
-	checkInputValidityToStyle(signUpButton)
-);
+confirmPassword.addEventListener("keyup", styleConfirmPasswordValidity);
+confirmPassword.addEventListener("focusout", styleConfirmPasswordValidity);
+
+signUpButton.addEventListener("click", () => styleInputValidity(signUpButton));
 
 // signUpButton.addEventListener("click", (e) => {
 // 	e.preventDefault();
