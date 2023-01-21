@@ -148,57 +148,54 @@ main {
 	position: relative;
 }
 
-.fa-circle-check {
+i {
 	position: absolute;
 	display: none;
 	opacity: 0;
-	color: green;
-	transform: translate(-50%, -50%);
 	top: 22.5px;
+	right: 0;
+	transform: translate(-50%, -50%);
 	transition: 0.5s;
-	display: none;
-	opacity: 0;
 	font-size: 1.2rem;
 }
 
-.fa-circle-xmark {
-	position: absolute;
-	transform: translate(-50%, -50%);
-	top: 22.5px;
-	right: 0;
-	transition: 0.5s;
+.fa-circle-check {
+	color: green;
+}
 
-	display: none;
-	opacity: 0;
+.fa-circle-xmark {
 	color: red;
-	font-size: 1.2rem;
 }
 
 .error-message {
 	color: red;
 	font-size: 0.85rem;
 	padding-top: 0.5em;
-	display: none;
+	visibility: hidden;
+	opacity: 0;
+	transition: 0.3s;
 }
 
 /* VALIDATION PSEUDO CLASSES */
 
-input:invalid,
-select:invalid {
+input.invalid,
+select.invalid {
 	outline: 2px solid #f87171;
 }
 
-input:invalid + .error-message {
-	display: block;
+input.invalid + .error-message {
+	visibility: visible;
+	opacity: 1;
 }
 
-input:invalid ~ .fa-circle-xmark {
+input.invalid ~ .fa-circle-xmark {
 	display: block;
 	opacity: 1;
 }
 
-input:valid ~ .fa-circle-check {
+input.valid ~ .fa-circle-check {
 	display: block;
+	opacity: 1;
 }
 
 .sign-up-button {
