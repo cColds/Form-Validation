@@ -14,13 +14,27 @@ function checkInputValidityToStyle(input) {
 }
 
 email.addEventListener("keyup", () => checkInputValidityToStyle(email));
+email.addEventListener("focusout", () => checkInputValidityToStyle(email));
+
 country.addEventListener("keyup", () => checkInputValidityToStyle(country));
+country.addEventListener("focusout", () => checkInputValidityToStyle(country));
+
 zipcode.addEventListener("keyup", () => checkInputValidityToStyle(zipcode));
+zipcode.addEventListener("focusout", () => checkInputValidityToStyle(zipcode));
+
 password.addEventListener("keyup", () => checkInputValidityToStyle(password));
+password.addEventListener("focusout", () =>
+	checkInputValidityToStyle(password)
+);
+
 confirmPassword.addEventListener("keyup", () =>
 	checkInputValidityToStyle(confirmPassword)
 );
-signUpButton.addEventListener("keyup", () =>
+confirmPassword.addEventListener("focusout", () =>
+	checkInputValidityToStyle(confirmPassword)
+);
+
+signUpButton.addEventListener("click", () =>
 	checkInputValidityToStyle(signUpButton)
 );
 
