@@ -5,17 +5,26 @@ const password = document.querySelector("#password");
 const confirmPassword = document.querySelector("#confirm-password");
 const signUpButton = document.querySelector(".sign-up-button");
 
-// add event listeners to inputs
+function checkInputValidityToStyle(input) {
+	if (input.validity.valid) {
+		input.className = "valid";
+	} else {
+		input.className = "invalid";
+	}
+}
 
-// email.addEventListener()
-country;
-zipcode;
-password;
-confirmPassword;
-signUpButton;
+email.addEventListener("keyup", () => checkInputValidityToStyle(email));
+country.addEventListener("keyup", () => checkInputValidityToStyle(country));
+zipcode.addEventListener("keyup", () => checkInputValidityToStyle(zipcode));
+password.addEventListener("keyup", () => checkInputValidityToStyle(password));
+confirmPassword.addEventListener("keyup", () =>
+	checkInputValidityToStyle(confirmPassword)
+);
+signUpButton.addEventListener("keyup", () =>
+	checkInputValidityToStyle(signUpButton)
+);
 
-// when typed, check validity, and display error or correct
-
-// password will check if matched
-
-//sign up button disabled unless all are valid
+// signUpButton.addEventListener("click", (e) => {
+// 	e.preventDefault();
+// 	console.log(getValidationInput());
+// });
