@@ -6,7 +6,7 @@ const confirmPassword = document.querySelector("#confirm-password");
 const signUpButton = document.querySelector(".sign-up-button");
 
 function styleInputValidity(input) {
-	if (input.validity.valid) {
+	if (input.validity.valid && !input.validity.patternMismatch) {
 		input.className = "valid";
 	} else {
 		input.className = "invalid";
@@ -33,8 +33,16 @@ zipcode.addEventListener("focusout", () => styleInputValidity(zipcode));
 password.addEventListener("keyup", () => styleInputValidity(password));
 password.addEventListener("focusout", () => styleInputValidity(password));
 
-confirmPassword.addEventListener("keyup", styleConfirmPasswordValidity);
-confirmPassword.addEventListener("focusout", styleConfirmPasswordValidity);
+confirmPassword.addEventListener("keyup", () => {
+	if (password.validity.patternMismatch || !password.validity.valid) return;
+
+	styleConfirmPasswordValidity();
+});
+confirmPassword.addEventListener("focusout", () => {
+	if (password.validity.patternMismatch || !password.validity.valid) return;
+
+	styleConfirmPasswordValidity();
+});
 
 signUpButton.addEventListener("click", () => styleInputValidity(signUpButton));
 
