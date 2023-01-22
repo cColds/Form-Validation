@@ -31,6 +31,22 @@ function styleCountryValidity() {
 	}
 }
 
+function checkFormValidity() {
+	const inputs = document.querySelectorAll("input");
+	const country = document.querySelector("#country");
+	const allInputs = [...inputs].every((input) => input.className === "valid");
+	[...inputs].forEach((input) => {
+		console.log(input.className);
+	});
+
+	return allInputs && country.className === "valid";
+}
+
+function styleAllInputsValidity() {
+	const allInputs = [email, country, zipcode, password, confirmPassword];
+	allInputs.forEach((input) => styleInputValidity(input));
+}
+
 email.addEventListener("keyup", () => styleInputValidity(email));
 email.addEventListener("focusout", () => styleInputValidity(email));
 
@@ -54,7 +70,13 @@ confirmPassword.addEventListener("focusout", () => {
 	styleConfirmPasswordValidity();
 });
 
-signUpButton.addEventListener("click", () => styleInputValidity(signUpButton));
+signUpButton.addEventListener("click", (e) => {
+	e.preventDefault();
+	styleAllInputsValidity();
+	styleCountryValidity();
+
+	if (!checkFormValidity()) return;
+});
 
 // signUpButton.addEventListener("click", (e) => {
 // 	e.preventDefault();
