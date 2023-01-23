@@ -74,11 +74,12 @@ confirmPassword.addEventListener("focusout", () => {
 	styleConfirmPasswordValidity();
 });
 
-showPassword.addEventListener("click", () => {
+function togglePasswordVisibility() {
 	const newInputType = password.type === "password" ? "text" : "password";
-	password.type = newInputType;
-	confirmPassword.type = newInputType;
-});
+	password.type = confirmPassword.type = newInputType;
+}
+
+showPassword.addEventListener("click", togglePasswordVisibility);
 
 const modal = document.querySelector(".modal");
 const modalOverlay = document.querySelector(".overlay");
