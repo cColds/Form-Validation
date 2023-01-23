@@ -104,14 +104,16 @@ main {
 
 .get-started-cta {
 	padding: 1em;
-	width: calc(8vw + 8vh + 1vmin);
+	width: 200px;
 	background-color: #45e0ad;
 	color: white;
 	font-weight: bold;
-	font-size: 1rem;
+	font-size: clamp(1rem, 1.5vw, 1.25rem);
+
 	transition: 0.3s;
 	margin-top: 1em;
 	white-space: nowrap;
+	max-width: 70%;
 }
 
 .get-started-cta:hover {
