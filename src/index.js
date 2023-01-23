@@ -93,6 +93,5 @@ signUpButton.addEventListener("click", (e) => {
 
 // TODO LIST:
 // select option stop focus should change outline without tap twice
-// fix get started not responsive (prob use max width)
 // fix sign up form not height 100 vh
 // maybe add mobile design medias query

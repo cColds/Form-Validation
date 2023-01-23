@@ -129,7 +129,6 @@ main {
 .right-content {
 	display: grid;
 	align-items: center;
-	border: 2px solid;
 }
 
 .sign-up-form {
@@ -237,7 +236,6 @@ input.valid ~ .fa-circle-check {
 	left: 50%;
 	transform: translate(-50%, -50%) scale(0);
 	transition: 200ms ease-in-out;
-	border: 1px solid black;
 	border-radius: 10px;
 	z-index: 10;
 	background-color: white;
@@ -300,4 +298,7 @@ input.valid ~ .fa-circle-check {
 	width: 100%;
 	object-fit: contain;
 	border-radius: 5px;
+}
+
+@media screen {
 }
