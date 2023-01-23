@@ -3,6 +3,7 @@ const country = document.querySelector("#country");
 const zipcode = document.querySelector("#zipcode");
 const password = document.querySelector("#password");
 const confirmPassword = document.querySelector("#confirm-password");
+const showPassword = document.querySelector("#show-password");
 const signUpButton = document.querySelector(".sign-up-button");
 
 function styleInputValidity(input) {
@@ -73,6 +74,12 @@ confirmPassword.addEventListener("focusout", () => {
 	styleConfirmPasswordValidity();
 });
 
+showPassword.addEventListener("click", () => {
+	const newInputType = password.type === "password" ? "text" : "password";
+	password.type = newInputType;
+	confirmPassword.type = newInputType;
+});
+
 const modal = document.querySelector(".modal");
 const modalOverlay = document.querySelector(".overlay");
 
@@ -90,6 +97,5 @@ signUpButton.addEventListener("click", (e) => {
 // select option stop focus should change outline without tap twice
 // fix get started not responsive (prob use max width)
 // fix sign up form not height 100 vh
-// add eyeball for password
 // maybe add mobile design medias query
 // among us sussy 123
