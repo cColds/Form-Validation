@@ -47,6 +47,9 @@ function styleAllInputsValidity() {
 	allInputs.forEach((input) => styleInputValidity(input));
 }
 
+const getStarted = document.querySelector(".get-started-cta");
+getStarted.addEventListener("click", () => email.focus());
+
 email.addEventListener("keyup", () => styleInputValidity(email));
 email.addEventListener("focusout", () => styleInputValidity(email));
 
@@ -71,6 +74,7 @@ confirmPassword.addEventListener("focusout", () => {
 });
 
 const modal = document.querySelector(".modal");
+const modalOverlay = document.querySelector(".overlay");
 
 signUpButton.addEventListener("click", (e) => {
 	e.preventDefault();
@@ -79,4 +83,13 @@ signUpButton.addEventListener("click", (e) => {
 
 	if (!checkFormValidity()) return;
 	modal.classList.add("active");
+	modalOverlay.classList.add("active");
 });
+
+// TODO LIST:
+// select option stop focus should change outline without tap twice
+// fix get started not responsive (prob use max width)
+// fix sign up form not height 100 vh
+// add eyeball for password
+// maybe add mobile design medias query
+// among us sussy 123
