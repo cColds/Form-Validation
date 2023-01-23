@@ -36,9 +36,6 @@ function checkFormValidity() {
 	const inputs = document.querySelectorAll("input");
 	const country = document.querySelector("#country");
 	const allInputs = [...inputs].every((input) => input.className === "valid");
-	[...inputs].forEach((input) => {
-		console.log(input.className);
-	});
 
 	return allInputs && country.className === "valid";
 }
@@ -46,6 +43,11 @@ function checkFormValidity() {
 function styleAllInputsValidity() {
 	const allInputs = [email, country, zipcode, password, confirmPassword];
 	allInputs.forEach((input) => styleInputValidity(input));
+}
+
+function togglePasswordVisibility() {
+	const newInputType = password.type === "password" ? "text" : "password";
+	password.type = confirmPassword.type = newInputType;
 }
 
 const getStarted = document.querySelector(".get-started-cta");
@@ -74,11 +76,6 @@ confirmPassword.addEventListener("focusout", () => {
 	styleConfirmPasswordValidity();
 });
 
-function togglePasswordVisibility() {
-	const newInputType = password.type === "password" ? "text" : "password";
-	password.type = confirmPassword.type = newInputType;
-}
-
 showPassword.addEventListener("click", togglePasswordVisibility);
 
 const modal = document.querySelector(".modal");
@@ -99,4 +96,3 @@ signUpButton.addEventListener("click", (e) => {
 // fix get started not responsive (prob use max width)
 // fix sign up form not height 100 vh
 // maybe add mobile design medias query
-// among us sussy 123
