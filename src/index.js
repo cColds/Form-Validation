@@ -70,15 +70,13 @@ confirmPassword.addEventListener("focusout", () => {
 	styleConfirmPasswordValidity();
 });
 
+const modal = document.querySelector(".modal");
+
 signUpButton.addEventListener("click", (e) => {
 	e.preventDefault();
 	styleAllInputsValidity();
 	styleCountryValidity();
 
 	if (!checkFormValidity()) return;
+	modal.classList.add("active");
 });
-
-// signUpButton.addEventListener("click", (e) => {
-// 	e.preventDefault();
-// 	console.log(getValidationInput());
-// });
