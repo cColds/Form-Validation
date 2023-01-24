@@ -84,9 +84,10 @@ const modalOverlay = document.querySelector(".overlay");
 signUpButton.addEventListener("click", (e) => {
 	e.preventDefault();
 	styleAllInputsValidity();
-	styleCountryValidity();
 
-	if (!checkFormValidity()) return;
+	if (!checkFormValidity() && password.value === confirmPassword.value) {
+		return;
+	}
 
 	modal.classList.add("active");
 	modalOverlay.classList.add("active");
