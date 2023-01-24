@@ -7,7 +7,7 @@ const showPassword = document.querySelector("#show-password");
 const signUpButton = document.querySelector(".sign-up-button");
 
 function styleInputValidity(input) {
-	console.log(country.validity.valid);
+	console.log(input.validity.valid && !input.validity.patternMismatch);
 	if (input.validity.valid && !input.validity.patternMismatch) {
 		input.className = "valid";
 	} else {
@@ -32,17 +32,25 @@ function styleCountryValidity() {
 	}
 }
 
-function checkFormValidity() {
-	const inputs = document.querySelectorAll("input");
-	const country = document.querySelector("#country");
-	const allInputs = [...inputs].every((input) => input.className === "valid");
+function getAllFormInputs() {
+	return [email, country, zipcode, password, confirmPassword, country];
+}
 
-	return allInputs && country.className === "valid";
+function checkFormValidity() {
+	const allFormInputs = getAllFormInputs();
+	const allFormInputsIsValid = allFormInputs.every(
+		(input) => input.className === "valid"
+	);
+
+	return allFormInputsIsValid;
 }
 
 function styleAllInputsValidity() {
-	const allInputs = [email, country, zipcode, password, confirmPassword];
-	allInputs.forEach((input) => styleInputValidity(input));
+	const allFormInputs = getAllFormInputs();
+
+	allFormInputs.forEach((input) => {
+		styleInputValidity(input);
+	});
 }
 
 function togglePasswordVisibility() {
@@ -65,16 +73,8 @@ zipcode.addEventListener("focusout", () => styleInputValidity(zipcode));
 password.addEventListener("keyup", () => styleInputValidity(password));
 password.addEventListener("focusout", () => styleInputValidity(password));
 
-confirmPassword.addEventListener("keyup", () => {
-	if (password.validity.patternMismatch || !password.validity.valid) return;
-
-	styleConfirmPasswordValidity();
-});
-confirmPassword.addEventListener("focusout", () => {
-	if (password.validity.patternMismatch || !password.validity.valid) return;
-
-	styleConfirmPasswordValidity();
-});
+confirmPassword.addEventListener("keyup", styleConfirmPasswordValidity);
+confirmPassword.addEventListener("focusout", styleConfirmPasswordValidity);
 
 showPassword.addEventListener("click", togglePasswordVisibility);
 
@@ -87,11 +87,7 @@ signUpButton.addEventListener("click", (e) => {
 	styleCountryValidity();
 
 	if (!checkFormValidity()) return;
+
 	modal.classList.add("active");
 	modalOverlay.classList.add("active");
 });
-
-// TODO LIST:
-// select option stop focus should change outline without tap twice
-// fix sign up form not height 100 vh
-// maybe add mobile design medias query
