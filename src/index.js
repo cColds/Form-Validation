@@ -6,32 +6,41 @@ const confirmPassword = document.querySelector("#confirm-password");
 const showPassword = document.querySelector("#show-password");
 const signUpButton = document.querySelector(".sign-up-button");
 
-function styleInputValidity(input) {
-	if (input.validity.valid && !input.validity.patternMismatch) {
-		input.className = "valid";
-	} else {
-		input.className = "invalid";
-	}
-}
+// function styleConfirmPasswordValidity() {
+// 	if (input.validity.valid && password.value === confirmPassword.value) {
+// 		confirmPassword.className = "valid";
+// 	} else {
+// 		confirmPassword.className = "invalid";
+// 	}
+// }
 
-function styleConfirmPasswordValidity() {
-	if (checkPasswordMatchAndRequirementsFulfilled()) {
+// function styleCountryValidity() {
+// 	const country = document.querySelector("#country");
+// 	if (country.value) {
+// 		country.className = "valid";
+// 	} else {
+// 		country.className = "invalid";
+// 	}
+// }
+
+function styleConfirmPassword() {
+	if (password.value === confirmPassword.value && password.validity.valid) {
 		confirmPassword.className = "valid";
 	} else {
 		confirmPassword.className = "invalid";
 	}
 }
 
-function checkPasswordMatchAndRequirementsFulfilled() {
-	return password.value === confirmPassword.value && password.validity.valid;
-}
+function styleInputValidity(input) {
+	if (input.id === "confirm-password") {
+		styleConfirmPassword();
+		return;
+	}
 
-function styleCountryValidity() {
-	const country = document.querySelector("#country");
-	if (country.value) {
-		country.className = "valid";
+	if (input.validity.valid) {
+		input.className = "valid";
 	} else {
-		country.className = "invalid";
+		input.className = "invalid";
 	}
 }
 
@@ -67,8 +76,8 @@ getStarted.addEventListener("click", () => email.focus());
 email.addEventListener("keyup", () => styleInputValidity(email));
 email.addEventListener("focusout", () => styleInputValidity(email));
 
-country.addEventListener("change", styleCountryValidity);
-country.addEventListener("focusout", styleCountryValidity);
+country.addEventListener("change", () => styleInputValidity(country));
+country.addEventListener("focusout", () => styleInputValidity(country));
 
 zipcode.addEventListener("keyup", () => styleInputValidity(zipcode));
 zipcode.addEventListener("focusout", () => styleInputValidity(zipcode));
@@ -76,18 +85,22 @@ zipcode.addEventListener("focusout", () => styleInputValidity(zipcode));
 password.addEventListener("keyup", () => {
 	styleInputValidity(password);
 	if (password.validity.valid) {
-		styleConfirmPasswordValidity();
+		styleInputValidity(confirmPassword);
 	}
 });
 password.addEventListener("focusout", () => {
 	styleInputValidity(password);
 	if (password.validity.valid) {
-		styleConfirmPasswordValidity();
+		styleInputValidity(confirmPassword);
 	}
 });
 
-confirmPassword.addEventListener("keyup", styleConfirmPasswordValidity);
-confirmPassword.addEventListener("focusout", styleConfirmPasswordValidity);
+confirmPassword.addEventListener("keyup", () =>
+	styleInputValidity(confirmPassword)
+);
+confirmPassword.addEventListener("focusout", () =>
+	styleInputValidity(confirmPassword)
+);
 
 showPassword.addEventListener("click", togglePasswordVisibility);
 
@@ -97,7 +110,6 @@ const modalOverlay = document.querySelector(".overlay");
 signUpButton.addEventListener("click", (e) => {
 	e.preventDefault();
 	styleAllInputsValidity();
-	styleConfirmPasswordValidity();
 
 	if (!checkFormInputsValidity()) {
 		return;
