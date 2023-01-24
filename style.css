@@ -148,6 +148,11 @@ main {
 	margin-bottom: 2.5em;
 }
 
+h2 {
+	font-family: "fontawesome";
+	letter-spacing: 2px;
+}
+
 .input-container {
 	position: relative;
 }
