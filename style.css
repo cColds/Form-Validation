@@ -132,11 +132,11 @@ main {
 	align-items: center;
 	height: 100%;
 	flex-grow: 1.5;
+	padding: 2.5em;
 }
 
 .sign-up-form {
 	display: grid;
-	padding: 1em;
 	gap: 1em;
 	justify-content: center;
 }
