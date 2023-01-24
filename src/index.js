@@ -6,23 +6,6 @@ const confirmPassword = document.querySelector("#confirm-password");
 const showPassword = document.querySelector("#show-password");
 const signUpButton = document.querySelector(".sign-up-button");
 
-// function styleConfirmPasswordValidity() {
-// 	if (input.validity.valid && password.value === confirmPassword.value) {
-// 		confirmPassword.className = "valid";
-// 	} else {
-// 		confirmPassword.className = "invalid";
-// 	}
-// }
-
-// function styleCountryValidity() {
-// 	const country = document.querySelector("#country");
-// 	if (country.value) {
-// 		country.className = "valid";
-// 	} else {
-// 		country.className = "invalid";
-// 	}
-// }
-
 function styleConfirmPassword() {
 	if (password.value === confirmPassword.value && password.validity.valid) {
 		confirmPassword.className = "valid";
