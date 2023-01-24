@@ -64,7 +64,7 @@ getStarted.addEventListener("click", () => email.focus());
 email.addEventListener("keyup", () => styleInputValidity(email));
 email.addEventListener("focusout", () => styleInputValidity(email));
 
-country.addEventListener("keyup", styleCountryValidity);
+country.addEventListener("change", styleCountryValidity);
 country.addEventListener("focusout", styleCountryValidity);
 
 zipcode.addEventListener("keyup", () => styleInputValidity(zipcode));
