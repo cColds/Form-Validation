@@ -7,7 +7,6 @@ const showPassword = document.querySelector("#show-password");
 const signUpButton = document.querySelector(".sign-up-button");
 
 function styleInputValidity(input) {
-	console.log(input.validity.valid && !input.validity.patternMismatch);
 	if (input.validity.valid && !input.validity.patternMismatch) {
 		input.className = "valid";
 	} else {
@@ -16,11 +15,15 @@ function styleInputValidity(input) {
 }
 
 function styleConfirmPasswordValidity() {
-	if (password.value === confirmPassword.value) {
+	if (checkPasswordMatchAndRequirementsFulfilled()) {
 		confirmPassword.className = "valid";
 	} else {
 		confirmPassword.className = "invalid";
 	}
+}
+
+function checkPasswordMatchAndRequirementsFulfilled() {
+	return password.value === confirmPassword.value && password.validity.valid;
 }
 
 function styleCountryValidity() {
@@ -36,7 +39,7 @@ function getAllFormInputs() {
 	return [email, country, zipcode, password, confirmPassword, country];
 }
 
-function checkFormValidity() {
+function checkFormInputsValidity() {
 	const allFormInputs = getAllFormInputs();
 	const allFormInputsIsValid = allFormInputs.every(
 		(input) => input.className === "valid"
@@ -70,8 +73,18 @@ country.addEventListener("focusout", styleCountryValidity);
 zipcode.addEventListener("keyup", () => styleInputValidity(zipcode));
 zipcode.addEventListener("focusout", () => styleInputValidity(zipcode));
 
-password.addEventListener("keyup", () => styleInputValidity(password));
-password.addEventListener("focusout", () => styleInputValidity(password));
+password.addEventListener("keyup", () => {
+	styleInputValidity(password);
+	if (password.validity.valid) {
+		styleConfirmPasswordValidity();
+	}
+});
+password.addEventListener("focusout", () => {
+	styleInputValidity(password);
+	if (password.validity.valid) {
+		styleConfirmPasswordValidity();
+	}
+});
 
 confirmPassword.addEventListener("keyup", styleConfirmPasswordValidity);
 confirmPassword.addEventListener("focusout", styleConfirmPasswordValidity);
@@ -84,8 +97,9 @@ const modalOverlay = document.querySelector(".overlay");
 signUpButton.addEventListener("click", (e) => {
 	e.preventDefault();
 	styleAllInputsValidity();
+	styleConfirmPasswordValidity();
 
-	if (!checkFormValidity() && password.value === confirmPassword.value) {
+	if (!checkFormInputsValidity()) {
 		return;
 	}
 
