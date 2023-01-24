@@ -53,15 +53,14 @@ label {
 /* MAIN */
 
 main {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
+	display: flex;
 	height: 100%;
 }
 
 /* LEFT CONTENT */
 
 .left-content {
-	padding: 0.5em;
+	padding: 1em;
 	display: grid;
 	grid-template-rows: 50px 1fr;
 	background-color: rgb(223, 250, 215);
@@ -300,5 +299,12 @@ input.valid ~ .fa-circle-check {
 	border-radius: 5px;
 }
 
-@media screen {
+@media (max-width: 1000px) {
+	.left-content-main {
+		display: none;
+	}
+
+	main {
+		flex-direction: column;
+	}
 }
