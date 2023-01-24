@@ -126,8 +126,11 @@ main {
 /* RIGHT CONTENT */
 
 .right-content {
-	display: grid;
+	display: flex;
+	justify-content: center;
 	align-items: center;
+	width: 100%;
+	height: 100%;
 }
 
 .sign-up-form {
